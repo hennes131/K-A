@@ -13,6 +13,7 @@ Erstellen eines lokalen Repositorys:
 	mkdir EuP
 2. Ordner mit git initialisieren
 	git init
+	(oder git init %ORDERNAME% -> erspart mkdir)
 3. Datei erzeugen zum Testen
 	touch test.txt
 4. Datei zum Repository hinzufuegen
@@ -29,3 +30,7 @@ Aktualisieren eines Projektes
 2. git add . -A Alles was in dem Basisverzeichnis gelöscht/hinzugefügt wird wird erkannt
 3. git add -am "Text zur Charakterisierung"
 4. git push origin master Schreiben der Änderungen vom PC zum GIT Server
+
+Cache Timeout ändern:
+git config --global credential.helper Cache
+git config credential.helper "Cache --timeout=36000000000"

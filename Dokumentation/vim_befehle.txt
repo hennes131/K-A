@@ -1,0 +1,38 @@
+**********Befehle zum Moduswechsel********************
+i        Einfügen vor der Cursorposition
+a        Einfügen nach der aktuellen Corsourposition
+I        Einfügen am Anfang der Aktuellen Zeile
+A        Einfügen am Ende der Zeile
+
+
+
+**********Befehle zum löschen / ersetzen von Text**********
+C        ersetzt die Aktuelle zeile durch neu eingegebenen Text
+c        in Verbindung mit bewegungsoperator ersetzt Text
+ce       löscht das nächste Wort
+x        löscht das zeichen der Cursorposition
+dd       löscht eine zeile und kopiert sie in den Cache
+
+p        fügt Text aus Zwischenablage nach der aktuellen zeile 
+
+yy       Zeile markieren
+
+v        markiermodus starten und mit Pfeiltasten vornehmen
+
+
+**********Befehle im Kommandomodus**********
+ESC    wechselt von Einfüge in den Befehlsmodus
+ 
+/      die eingegebenen zeichen werden im Text gesucht
+n      sucht vorwärts
+N      sucht rückwärts
+
+w      springt ein Wort weiter
+gg     geht zum dateianfang
+GG     geht zum Dateiende
+
+:w     speichert die Datei
+:w <Dateiname>   speichert text in neuer Datei
+:q     beendet falls keine änderung vorgenommen wurden
+:wq    speichert und beendet vim
+:q!    verfirft Änderung und und beendet vim 

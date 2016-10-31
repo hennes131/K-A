@@ -1,0 +1,59 @@
+Anzeigen von Dateien und Ordnern
+	ls
+		zeigt Inhalt des aktuellen Verzeichnisses
+	ls -a
+		zeigt alle Dateien und Ordner des aktuellen verzeichnisses
+	ls -l 
+		zeigt Inhalt des aktuellen Verzeichnis, in der Langfassung (Berechtigungen, Datum der 
+		Änderungen)
+	ls Dokumente
+		zeigt Inhalt des Verzeichnisses Dokumente relativ zum angegebenen Standort. In diesem Fall 
+		befindet sich der Konsolenzeiger im Homeverzeichnis des angemeldeten Benutzers
+	ls /etc/apache2/
+		zeigt Dateine und Ordner relativ zur Wurzel (/), d.h. vom absoluten Pfad aus 
+
+
+Bewegen in der Dateihierarchie
+	cd Dokumente
+		wechselt das Verzeichnis relativ zum Standort
+	cd /home/theo/dokumente 
+		wechselt mit absolutem Pfad. Es ist unwichtig wo der User ist.
+	cd ~ oder cd
+		wechselt in das Home Verzeichnis des Benutzers.
+	cd .. 
+		wechselt eine Ebene tiefer
+
+Manipulieren von Dateien / Verzeichnissen 
+	
+	touch <Dateiname>
+		legt im aktuellen Verzeichnis eine neue Datei an 
+	
+	less <Dateiname>
+		zeigt den Inhalt der Datei
+	
+	mkdir <Verzeichnis>
+		legt ein neues Verzeichnis an 
+
+	cp <quelle> <ziel>
+		cp <dateiname> <dateiname2> 
+		cp /srv/git/test.txt .
+		cp /srv/git/test.txt /home/theo/Dokumente
+		cp <dateiname> . (Kopiert in das aktuelle Verzeichnis)
+		kopiert eine Datei
+
+	cp -r <quelle> <ziel>
+		kopiert ein Verzeichnis 
+
+	rm <dateiname>
+		löscht Datei
+
+	rm -r <Verzeichnis>
+		löscht das Verzeichnis
+
+	mv <dateiname> <dateiname2>
+		Wird verwendet um eine Dateiumzubenennen oder zu verschieben 
+
+	
+
+
+

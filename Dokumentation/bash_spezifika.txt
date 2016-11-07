@@ -3,6 +3,24 @@ pwd
 whoami
 	als wer bin ich angemeldet
 
+Standarddeskriptoren
+	IN : Tastatur
+		Kurzuform ist 0
+	OUT : Bildschirm
+		Kurzuform ist 1
+	ERR : Fehler 
+		Kurzuform ist 2
+
+	Beispiel: 
+		ls /root
+			erbigt einen Fehler der ausgegeben wird
+				ls /root 2> fehler.dat
+					lenkt die Fehler in die Datei "fehler.dat" um
+				ls /root 2> dev/null
+					lenkt die Fehler ins nirvana
+
+
+
 Bash-Operator:
 	
 	>
@@ -10,6 +28,10 @@ Bash-Operator:
 
 	>>
 		dito, aber Ergebnis wird angehängt
+	ls /etc >> datei_namen.dat
+		Der bash Interpreter schaut nach, ob es eine Datei "datei_name.dat". Falls ja wird das Ergebnis des 
+		befehls "ls" angehängt, falls nein wird eine Datei mit dem Namen "datei_name.dat" erzeugt und die 
+		Ausgabe des Befehls reingeschrieben. 
 
 	|
 		pipe: Das ergebnis wird an das nächste Programm zur Weiterverarbeitung übergeben
@@ -27,7 +49,26 @@ Links
 	Hardlink
 		ln <Dateiname> <Dateiname-link>
 			erzeugt eine neue Referenz auf eine Datei in der File-Tabelle der Festplatte
+			Jede Datei hat mind. einen Hardlink
 	Softlink
 		ln -s <Verzeichnisname> <Verzeichnisname-neu>
 			Da hardlinks nur für Dateien mögich sind gibt es den Softlink für Verzeichnisse, 
 			es wird eine neue Datei erstellt, deren Inhalt der Verweis auf das  Verzeichnis ist. 
+
+
+Variablen auf der Konsole
+	Definition
+		Variablenname aus Buchstaben, keine Zahlen als 1. Buchstaben, keine Sonderzeichen, dann 
+		Zuweisungsoperator ohne Leerzeichen, dann Wert
+			var="zeichenkette"
+	Verwendung
+	$ + Variablenname
+		echo $var
+
+Kommandosubstitution mit Backticks
+	var=`ls`
+		speichert in der Variable var die Ausgabe des Befehls 
+
+	echo $var
+		gibt das Ergebnis des Befehls aus
+		

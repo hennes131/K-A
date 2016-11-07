@@ -1,0 +1,10 @@
+Links: 
+	ubuntuusers.de
+	help.ubuntu.com
+	https://wiki.ubuntuusers.de/Shell/Befehls%C3%BCbersicht/
+
+Hilfe auf der Konsole 
+	man <befehl>
+		z.B. man ls
+
+	<befehl> --help | less

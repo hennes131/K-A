@@ -1,0 +1,16 @@
+#!/bin/bash
+read -p "Geben Sie die erste Zahl ein:" eingabe1
+read -p "Geben Sie die weitere Zahlen ein oder 'exit' um zu beenden:" eingabe2
+ausgabe=$((eingabe1+eingabe2))
+echo "Das 1. Ergebnis ist $ausgabe"
+i=2
+while [[ $eingabe != "exit" ]]; do
+	read -p "Geben Sie die erste Zahl ein:" eingabe
+	ausgabe=$((ausgabe+eingabe))
+	if [[ $eingabe != "exit" ]]; then
+	echo "Das $i. Ergebnis ist $ausgabe"
+	else
+	echo "Das Endergebnis ist $ausgabe"
+	fi 
+	i=$((i+1))
+done

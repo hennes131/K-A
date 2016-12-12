@@ -1,0 +1,9 @@
+#!/bin/bash
+date=`date +%Y-%m-%d:%H:%M:%S`
+read -p "Dateiname:" topic
+read -p "Notiz:" text
+if [[ ! -e "$HOME/$topic.notes.txt" ]]
+	then
+		touch $HOME/$topic.notes.txt
+fi
+printf "Anhang vom $date\n$text\n" >> $HOME/$topic.notes.txt

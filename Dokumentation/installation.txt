@@ -1,0 +1,90 @@
+Kernel: 
+	Linux ist eigentlich ausschließlich das 
+		Core Operating System 
+		-  ohne jede Applikation
+		d.h. es werden lediglich die Schnittstellen zu: Netzwerk, Peripheriegeräten,
+		Tastatur, Bildschirm etc. modular eingebunden
+
+Befehle:
+	Kernelversion:			uname -r
+	Distribution:			lsb_release -a
+	Memory-Info:			free
+							less /proc/meminfo
+							free -m (gibt die Angabe in MB)
+
+	tail -n 100 /var/log/syslog			zeigt die letzten 100 Zeilen
+	tail -f /var/log/syslog				öffnet die Datei dauerhaft
+
+	Bootmeldungen:			less /var/log/boot.log
+							dmesg | grep -i network
+
+Runlevel:
+	0		Halt
+	1		Single User, only root
+	2 		Multiuser, no gui no network
+	3		Multiuser, with network, no gui
+	4		user definierbar
+	5		Full
+	6		Reboot
+
+	Ubuntu: runlevel 2,3 sind äquivalent
+
+Softwareverwaltung:
+	Paketmanagement
+		RPM, YUM: Red Hat, CentOS, Fedora
+		DPKG: Debian, Ubuntu
+
+	DPKG - Paketverwaltung:
+		- deb - files
+		- besteht aus Archiven mit einer festgelegten Struktur, d.h. einer Ordnerstruktur, Meta- und Konfigurationsdateien, Installationsskript
+		- sichert, dass alle Vorraussetzungen erfüllt sind
+		- warnt vor Konflikten, wenn Pakete unverträglich sind
+		- enthält die man Pages
+		- kümmert sich um die Aktualisierung des kompletten Systems
+		- ermöglicht einen Überblick über die installierte Software
+		- ermöglicht eine saubere Deinstallation 
+
+	Paketkomponenten:
+		main:
+			OpenSource komplett, wird vom Ubuntu-Team erstellt und verwaltet
+		restricted:
+			Ubuntu-Team, aber inklusive nicht OpenSource Software (Grafiktreiber)
+		univers:
+			OpenSource, erstellt und gepflegt von Community 
+		multiverse:
+			Nicht OpenSource
+
+		Für das komplette System:
+			siehe less /etc/apt/sources.list
+
+	UPDATE des Systems:
+		sudo apt-get update
+			Aktualisiert die Paketquellen
+		sudo apt-get upgrade
+			- vergleicht Versionsstand nach Update mit aktuellem
+			- führt eine Aktualisierung durch
+
+	Installation:
+		sudo apt-get update
+			Aktualisieren der Paketquellen
+		sudo apt-get install <paketname>
+			- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

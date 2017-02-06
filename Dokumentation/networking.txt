@@ -1,0 +1,27 @@
+Verbindung über Netzwerkadapter 
+	ifconfig 
+
+	Einstellungen des Netzwerkadapters in: 
+		/etc/network/interfaces
+			auto eth0
+			iface eth0 inet dhcp
+			
+			auto eth1
+			iface eth1 inet static
+				adress 172.16.161.91
+				netmask 255.255.0.0
+				gateway 172.16.1.253 
+				dns-nameservers 172.16.1.201
+
+	aktuelle Konfiguration übernehmen:
+		sudo service networking restart
+	oder
+		sudo ifdown eth1
+		sudo ifup eth1
+
+DNS - Gateway
+	/etc/resolv.conf
+		nameserver 172.16.1.201
+	/etc/hosts
+		172.16.161.66 r11.schuelerpc.local
+	

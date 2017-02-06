@@ -1,0 +1,34 @@
+Befehle: (allen Befehlen ist ein sudo vorangestellt)
+	sudo useradd anton 
+		Legt einen Benutzer anton an, ohne password und console
+	sudo useradd 
+		-c 'Peter Pan' 
+		-d /home/subdir/peter 
+		-G weitere gruppe 
+		-m legt definiertes Verzeichnis von #-d an
+		-s /bin/bash peter
+	sudo adduser anton
+		startet ein Menü, das verschiedenen Differenzierungen erlaubt
+	passwd 
+		vom eigeloggten user ausgeführt wird das Passwort neu gesetzt
+	sudo passwd anton 
+		setzt das Passwort von anton
+	su anton 
+		wechselt zu dem Benutzer anton, loggt sich als dieser ein
+	sudo su anton
+		wechsel ohne passwortabfrage 
+
+	sudo userdel -r anton
+		entfernt das Home Verzeichnis
+	sudo usermod -aG hamburg peter
+		anlegen und löschen einer 
+
+Dateien:
+	/etc/passwd
+		primäre Datei der Benutzer
+	/etc/shadow
+		Datei für die Passwörter
+	/etc/group
+		Datei der gelisteten Gruppen
+
+	

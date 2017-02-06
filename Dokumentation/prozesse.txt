@@ -1,0 +1,13 @@
+Programme:
+	top
+		zeigt alle Prozesse des Systems
+		aktualisiert sich im Sekundentakt
+
+	ps aux | grep "suchbegriff"
+		alle Prozesse des angemeldeten Benutzer werden dem Programm grep übergeben,
+		das eine Filterung nach dem Suchbegriff vornimmt.
+		der erste Eintrag der Liste zeigt den Besitzer, der zweite Eintrag ist die Prozess-ID
+		abkürzung PID die benötigt wird, um den Prozess zu beenden
+	kill -9 PID
+		Beendet den Prozess ohne Ausnahme oder Nachfrage zuzulassen 
+	

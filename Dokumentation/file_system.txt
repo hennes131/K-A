@@ -1,0 +1,93 @@
+Dateisystem in Linux
+	ext4		standard
+	xfs			für große Datein
+	reiserfs	effizient
+	swap 		Partition für die Auslagerungsdatei als ein frei adressierbarer Speicher
+
+Befehle:
+	df -hT	Übersicht über den Speicher
+	du -hs /home Größe des benutzten Speichers
+	lsblk -t Zeigt die Partitionen
+
+Berechtigungen:
+	Verzeichnisse und Dateien haben Berechtigungen und Besitzer
+	Beispiel:
+		drwxr-xr-x 2 theo theo 4096 Sep 6 11:01 Bilder
+			d steht für die Art des Eintrags (ordner, Datei)
+			rwx r-x r-x 
+				Berechtigung für:
+					user (Besitzer)
+					gruppe
+					andere - alle
+			r = read (4)
+			w = write (2)
+			x = ausführen (1)
+
+	Beispiel:
+		Datei sollte: 
+			user: alle Berechtigungen
+			gruppe: lesen, schreiben
+			alle: lesen
+
+		chmod 764 name_der_Datei	
+		chmod -R 766 name_des_ordner #Ordnerinhalt wird rekursiv geändert
+
+	chmod g+x name_der_Datei	gibt der Gruppe das Recht auf ausführen
+	chmod g-x name_der_Datei	entzieht das Recht
+	chmod g=rx name_der_Datei 	überschreibt für Gruppe mit Read und Ausführen
+
+	sudo chown -R user:group Ordner_name
+	sudo chown -R wwww-data:root	/var/www/webname
+		Ändere für den Ordner webname und alle Unterordner und Dateien den Besitzer in
+		www-data und die Gruppe root 
+
+
+
+
+
+Anzeigen von Dateien und Ordnern
+	ls
+		zeigt Inhalt des aktuellen Verzeichnisses
+	ls -a
+		zeigt alle Dateien und Ordner des aktuellen Verzeichnisses
+	ls -l
+		zeigt Inhalt des aktuellen Verzeichnisses in der Langfassung (Berechtigungen, Datum der Änderungen)
+	ls Dokumente
+		zeigt Inhalt des Verzeichnisses Dokumente relativ zum aktuellen Standort. In diesem Fall befindet sich der Konsolenzeiger im Homeverzeichnis des angemeldeten Benutzers
+	ls /etc/apache2/
+		zeigt Dateien und Ordner relativ zur Wurzel (/), d.h. vom absoluten Pfad aus
+
+Bewegen in der Dateihierarchie
+	cd Dokumente 		wechselt das Verzeichnis relativ zum Standort
+	cd /home/theo/Dokumente 	wechselt mit absoluter Pfadangabe.
+								Es ist unwichtig wo der user ist
+	cd ~ oder cd 		wechselt in das Home-Verzeichnis des Benutzers
+	cd .. 				wechselt eine Ebene tiefer
+
+Manipulieren von Dateien/Verzeichnissen
+	touch <dateiname>
+		legt im aktuellen Verzeichnis eine neue Datei an
+
+	less <dateiname>
+		zeigt den Inhalt der Datei an
+	
+	mkdir <verzeichnis>
+		legt eine neues Verzeichnis an
+
+	cp <quelle> <ziel>
+		cp <dateiname> <dateiname2>
+		cp /srv/git/test.txt .
+		cp /srv/git/test.txt /home/theo/Dokumente
+		Kopiert eine Datei in das aktuelle Verzeichnies, bzw. das angegebene Verzeichnis
+
+	cp -r <quelle> <ziel>
+		Kopiert ein Verzeichnis
+
+	rm <dateiname>
+		Löscht die Datei
+
+	rm -r <verzeichnis>
+		Löscht das Verzeichnis
+
+	mv <dateiname> <dateiname2>
+		Wird verwendet um eine Datei umzubenennen oder zu verschieben

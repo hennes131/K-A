@@ -1,0 +1,47 @@
+Installation:\par\noindent
+\hspace(3mm)sudo apt-get install openssh-server\par\noindent
+\hspace(3mm)sudo apt-get install sshd #falls der Client installiert werden soll\par\vspace(3mm)\noindent
+Starten:\par\noindent
+\hspace(3mm)sudo ssh restart | reload | stop\par\vspace(3mm)\noindent
+Verbinden:\par\noindent
+\hspace(3mm)Server - IP: 172.16.161.211\par\noindent
+\hspace(3mm)Server - User: theo\par\noindent
+\hspace(3mm)vom Client:\par\noindent
+\hspace(7mm)ssh theo@172.16.161.211\par\vspace(3mm)\noindent
+SSH ist ein Protokoll, das eine verschlüsselte Verbindung herstellt.\par\noindent
+Zu diesem Zweck wird beim ersten Verbindungsaufbau der Serverschlüssel in der Datei .ssh/\par\noindent
+known\_hosts auf dem Client gespeichert. Bei jedem Verbindungsaufbau zwischen Server und Client\par\noindent
+werden die Schlüssel im Hintergrund getauscht und kontrolliert.\par\vspace(3mm)\noindent
+Log\par\noindent
+\hspace(3mm)/var/log/auth.log\par\vspace(3mm)\noindent
+Erhöhen der Sicherheit:
+\begin(enumerate)
+\item Port auf dem der Server lauscht, wird von 22 auf irgendwas größer als 1000 geändert
+\item Zugriff von root generell unterbinden 
+\item Zugriff nur von bestimmten Rechnern zulassen
+\end(enumerate)\par\vspace(3mm)\noindent
+Login mit Key vom Rechner\par\noindent
+Erzeugen eines Schlüssels auf dem Client-Rechner\par\noindent
+\hspace(3mm)ssh-keygen -t rsa -C 'theo@gmx.de'\par\noindent
+\hspace(3mm)Kopieren des public-key zum Server\par\noindent
+\hspace(7mm)ssh-copy-id -i ~/.ssh/id_rsa.pub gerhardt@172.16.161.82\par\noindent
+\hspace(3mm)Login danach\par\noindent
+\hspace(7mm)ssh gerhardt@172.16.161.82\par\vspace(3mm)\noindent
+Anpassen der Konfigurationsdatei von SSH auf dem Server\par\noindent
+\hspace(3mm)vim /etc/ssh/sshd_config\par\noindent
+\hspace(7mm)port 3333\par\noindent
+\hspace(7mm)PermitRootLogin no\par\noindent
+\hspace(7mm)PasswordAuthentication no #erlaubt nur noch Rechnern den Login\par\vspace(3mm)\noindent
+Kopieren von Dateien\par\noindent
+\hspace(3mm)scp test-copy-server theo@172.16.161.211:/home/user/theo\par\noindent
+\hspace(7mm)vom lokalen Client wird eine Datei zum Server kopiert\par\vspace(3mm)\noindent
+Von Windows auf Server\par\noindent
+\hspace(3mm)putty\par\noindent
+\hspace(3mm)winscp\par\vspace(3mm)\noindent
+Wichtiges:\par\noindent
+Wir verbinden uns zum ersten Mal über ssh zum Server. Der Client will den Handshake machen.\par\noindent
+Im root-Verzeichnis eines jeden Beutzers gibt es ein Verzeichnis .ssh.\par\noindent
+Wenn die Verbindung von uns jetzt bestätigt wird, erzeugt er im noch leeren .ssh eine Datei "known\_hosts".\par\noindent
+In dieser Datei befindet sich dann der Schlüssel des Servers.\par\vspace(3mm)\noindent
+Wie konfiguriere ich die Netzwerkkarte manuell am Server?\par\noindent
+\hspace(3mm)sudo vim /etc/network/interfaces\par\noindent

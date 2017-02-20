@@ -1,0 +1,33 @@
+Defintion Webserver.\par\noindent
+\begin(itemize)
+\item basiert auf dem Protokoll http
+\item liefert Websiten an Clients
+\item enthält Module für Skriptsprachen, z.B. php
+\item lauscht standardmäßig auf Port 80
+\item verschlüsselung über https möglich, wird auf Port 443 erwartet
+\item Apache, Nginx, Internet-Information-Service (IIS)
+\end(itemize)\par\vspace(3mm)\noindent
+Installation\par\noindent
+\hspace(3mm)sudo apt-get update\par\noindent
+\hspace(3mm)sudo apt-get install apache2\par\noindent
+\hspace(3mm)sudo apt-get install lynx\par\vspace(3mm)\noindent
+Hostname setzen auf Server\par\noindent
+\hspace(3mm)sudo hostname -b servername.local\par\noindent
+\hspace(3mm)sudo vim /etc/hostname \par\noindent
+\hspace(7mm)servername.local\par\noindent
+\hspace(3mm)sudo vim /etc/hosts\par\noindent
+\hspace(7mm)127.0.0.1 servername.local\par\vspace(3mm)\noindent
+Hostname auf Client setzen\par\noindent
+\hspace(3mm)sudo vim /etc/hosts\par\noindent
+\hspace(7mm)172.16.161.201 servername.local\par\vspace(3mm)\noindent
+Testen\par\noindent
+\hspace(3mm)Server\par\noindent
+\hspace(7mm)lynx http://127.0.0.1\par\noindent
+\hspace(7mm)lynx http://servername.local\par\noindent
+\hspace(3mm)Client\par\noindent
+\hspace(7mm)http://172.16.161.82\par\noindent
+\hspace(7mm)http://servername.local\par\vspace(3mm)\noindent
+PHP Modul\par\noindent
+\hspace(3mm)sudo apt-get install libapache2-mod-php\par\noindent
+\hspace(3mm)sudo a2enmod php7.0\par\noindent
+\hspace(3mm)sudo service apache2 restart\par\noindent

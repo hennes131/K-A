@@ -1,0 +1,17 @@
+Verzeichnis und Dateiein anlegen\par\noindent
+\hspace(3mm)sudo mkdir /var/www/html/webneu\par\noindent
+\hspace(3mm)sudo touch /var/www/html/webneu/index.php\par\noindent
+\hspace(3mm).....\par\noindent
+\hspace(3mm)sudo chown -R www-data:www-data webneu\par\vspace(3mm)\noindent
+Virtualhost anlegen\par\noindent
+\hspace(3mm)cd /etc/apache27sites-available\par\noindent
+\hspace(7mm)sudo vim webneu.conf\par\noindent
+\hspace(11mm)<VirtualHost *:80>\par\noindent
+\hspace(13mm)ServerName webneu.fit5h-gerhardt-server.local\par\noindent
+\hspace(13mm)DocumentRoot /var/www/html/webneu\par\noindent
+\hspace(11mm)</VirtualHost>\par\noindent
+\hspace(7mm)sudo a2ensite webneu\par\noindent
+\hspace(7mm)sudo service apache2 reload\par\vspace(3mm)\noindent
+Test im Client-Browser:\par\noindent
+\hspace(3mm)http://webneu.servername.local\par\vspace(3mm)\noindent
+

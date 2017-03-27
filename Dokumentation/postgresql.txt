@@ -1,0 +1,143 @@
+\large{\underline{\textbf{Datenbank Allgemein}}}\par\noindent
+\underline{Historisch}
+\begin{itemize}
+\item Es geht darum große Mengen an Daten effizient zu verwalten
+\item Konzept entstand zwischen 1960 und 1970
+\item IBM-Mitarbeiter Edgar F. Codd
+\end{itemize}\par\vspace{3mm}\noindent
+\underline{Datenbankmanagementsystem (DBMS)}
+\begin{itemize}
+\item Verwalten der Daten geschieht mit einer Datenbanksprache
+\item ANSI-sql ist Obermenge, aus der heraus jedes Datenbanksystem eine Erweiterung 
+der Sprache mit zusätzlichen Elementen und Features zur Verfügung stellt.
+\begin{itemize}
+\item Mssql:\par
+Transact-Sql
+\item Oracle:\par
+plsql
+\item Datenabfrage und Datenmanipulation (DML)
+\item Verwaltung der Datenbank und Definition der Datenstruktur (DDL)
+\item Berechtigungssteuerung (DCL)
+\end{itemize}
+\end{itemize}\par\vspace{3mm}\noindent
+\underline{Datenbanken}
+\begin{itemize}
+\item Feature der großen Datenbanken:
+\begin{itemize}
+\item Transaction
+\item Eigene Spracherweiterung
+\item Skalierung der Größe der Datenbank und der Server
+\item Methoden der Datensicherung
+\end{itemize}
+\item IBM - Informix, DB2
+\item Oracle
+\item Microsoft - MSSQL
+\item Postgres
+\item Weitere Kleine DB's:
+\begin{itemize}
+\item Microsoft: Access
+\item MySQL
+\item SQlite
+\end{itemize}
+\item Typen
+\begin{itemize}
+\item Relationale Datenorganisation
+\begin{itemize}
+\item Tabelle hat eine eindeutigen Schlüssel (PK), der jede Zeile der Tabelle
+eindeutig kennzeichnet
+\item Eine andere Tabelle kann zu dieser über den PK in 
+eine Beziehung gesetzt werden
+\end{itemize}
+\item Objektorientierte Datenbanken
+\begin{itemize}
+\item Es werden Objekte mit Eigenschaften und Daten verwaltet. Es gibt eine
+baumartige Hirarchie mit Vererbung
+\item Systeme: DB40, Z0DB
+\end{itemize}
+\item Dokumentenorientierte Datenbanken
+\begin{itemize}
+\item Die Daten werden als Dokumente, versehen mit Attributen gespeichert.
+\item Systeme: MongoDB, CouchDB, Lotus Notes
+\end{itemize}
+\end{itemize}
+\end{itemize}\par\vspace{3mm}\noindent
+\underline{Postgres}
+\begin{itemize}
+\item Vorteile
+\begin{itemize}
+\item große Community, die am stärksten wachsende DB
+\item Opensoure
+\item hohe Zuverlässigkeit
+\item Gute Performance
+\item viele Feature
+\item seit 1987
+\end{itemize}
+\end{itemize}\par\vspace{3mm}\noindent
+\underline{Postgre Installation}
+\begin{itemize}
+\item Siehe Link: https://wiki.postgresql.org/wiki/Apt
+\item service postgresql status
+\item überprüfen ob der Server läuft
+\end{itemize}
+\underline{nach der Installation}
+\begin{itemize}
+\item neuen user anlegen\par
+sudo -u postgres psql postgres führt uns auf die psql Konsole
+weiteres in der psql Konsole
+\begin{itemize}
+\item benutzer anlegen\par
+CREATE USER gerhardt WITH SUPERUSER ENCRYPTED PASSWORD '%G16Admin';
+\item Database für den benutzer anlegen\par
+CREATE DATABASE gerhardt OWNER gerhardt;
+\end{itemize}
+\end{itemize}\par\vspace{5mm}\noindent
+\large{\underline{\textbf{Aufgabe}}}\par\noindent
+\begin{enumerate}
+\item Datenbank g16 anlegen
+\item Dort Tabelle customers anlegen, mit den Spalten:\par
+	id SERIAL, first_name VARCHAR(50), last_name VARCHAR(50), address VARCHAR(20), zip CHAR(5), city VARCHAR(30),
+	gender CHAR(1), email VARCHAR(30)
+\item Füllen Sie die Tablle mit 2 Datensätzen
+\end{enumerate}\par\vspace{5mm}\noindent
+\large{\underline{\textbf{Aufgabe-Lösung}}}\par\noindent
+\begin{lstlisting}
+In psql Konsole
+	CREATE DATABASE g16;
+	
+	\q
+
+in Bash
+	psql g16
+
+in psql 
+	CREATE TABLE customers(id SERIAL, first_name VARCHAR(50), last_name VARCHAR(50), address VARCHAR(20), zip CHAR(5), 
+	city VARCHAR(30), gender CHAR(1), email VARCHAR(30), PRIMARY KEY(id));
+	
+	INSERT INTO customers(first_name, last_name, address, zip, city, gender, email) VALUES('hans', 'peter', 'auf der 
+	lauer', '21031', 'hamburg', 'm', 'hanspeter12@web.de');
+	
+	g16=# INSERT INTO customers(first_name, last_name, address, zip, city, gender, email) VALUES('luna', 'peter', 'auf 
+	der mauer', '21028', 'hamburg', 'w', 'lunapeter12@web.de');
+\end{lstlisting}
+\vfill
+\underline{\textbf{postgre befehle}}
+\begin{itemize}
+\item Befehle immer mit ; abschließen
+\item _\q\par
+schließen der Konsole
+\item _\l\par
+listet Objekte in der akutellen Ebene auf
+\item psql\par
+Wenn ein gleichnamiger User in psql exisitert wie der akutell angemeldete 
+Linux Nutzer können wir uns damit anmelden
+\item psql -U <username>\par
+Um sich mit anderem User anzumelden
+\item _\c in der Hirarchie zurückspringen
+\item INSERT INTO (<spalten>) VLAUES()
+\item CREATE <TABLE/DATABASE>
+\end{itemize}
+Für Postgres in php
+
+sudo apt-get install php-pgsql
+
+

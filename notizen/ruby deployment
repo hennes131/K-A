@@ -1,0 +1,16 @@
+https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/apache/oss/xenial/install_passenger.html
+
+nur bei Step 2 zum neustart
+	sudo service apache2 restart
+Deploy:
+	initialisere ein neues git repo "new_app" auf deinem server
+	erstelle ein neues Rails-Projekt "new_app" AUF DEM DESKTOP!
+ 	Im Projektordner
+		gemfile "rubyracer" einkopieren
+		rails g scaffold projects title description:text
+		config/routes root 'projects#index'
+		bundle exec rake db:migrate
+		git add . -A
+		git commit -am "Initial Import"
+		git remote add origin git@172.16.161.82:/~/new_app
+		git push origin master

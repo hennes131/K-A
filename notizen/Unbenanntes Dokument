@@ -1,0 +1,22 @@
+sudo apt-get install libpq-dev
+
+gem install faker
+gem install pg
+
+INdexierung
+
+EXPLAIN SELECT id, email FROM customers WHERE email='x'
+
+EXPLAIN SELECT id, email FROM customers WHERE id=1;
+
+CREATE INDEX ix_customer_email ON customers(email);
+
+dump
+in psql
+	\copy customers to ~/dumps/customers.csv
+
+mit allem um neu zu erstellen und in bash	
+	pg_dump -c g16 > dumps/customers2.csv
+wiederherstellen
+psql g16 < dumps/customers2.csv
+

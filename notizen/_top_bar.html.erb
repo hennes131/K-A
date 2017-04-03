@@ -1,0 +1,20 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">RAILS APP</li>
+      <li><%= link_to 'Projekte', root_path %></li>
+      <li><%= link_to 'Users', users_path if current_user %></a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+    <% if current_user %>
+      <%= current_user.name %>
+      <%= link_to 'Logout', session_path, method: :delete %>
+    <% else %>
+      <li><%= link_to 'Sign UP', singup_path %></li>
+      <li><%= link_to 'Sign IN', new_session_path %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

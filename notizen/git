@@ -1,0 +1,32 @@
+Aneitung
+	http://www.blog.d-11.de/2012/03/28/git-server-fur-kleine-entwicklergruppen-aufsetzen-einrichten-debian-basiert/
+
+Aufgabe
+
+1. eigner Git-server einrichten
+2. user anelgen
+3. repository von github auf den eigenen ziehen
+4. Zweiten Ordner auf Client anlegen (z.B. KuA-privat)
+5. Verbindung testen
+
+
+Lösung:
+
+1.  sudo apt-get install aptitude
+2.  sudo aptitude install git-core -y
+3.  sudo adduser git
+4.  cd /home/git
+5.  mkdir .ssh
+6.  touch .ssh/authorized_keys
+7.  chmod 600 .ssh/authorized_keys
+Auf dem HOST
+8.  ssh-copy-id -i /home/tobias/.ssh/id_rsa.pub git@172.16.161.82
+AUF DEM SERVER
+9.  mkdir KuA-P.git
+10. cd KuA-P.git
+11. git --bare init
+13. git --bare fetch https://hennes131@github.com/hennes131/K-A.git master:master
+Auf dem HOST
+12. git clone ssh://git@$IP-ADRESSE/~/KuA-P.git
+
+
